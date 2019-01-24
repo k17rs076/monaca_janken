@@ -10,8 +10,9 @@ var game = {
     },
     fps: 30,
     cvs: {
-        width: 640,
-        height: 480
+        width: 320
+        ,
+        height: 630
     }, // キャンバス：サイズ
     paddle: {
         size: 50,
@@ -20,7 +21,7 @@ var game = {
     ball: {
         size: 5,
         speed: 5,
-        x: 320,
+        x: 300,
         y: 240,
         color: '#dd0000'
     }, // ボール：サイズ, 速さ, 色
@@ -164,7 +165,7 @@ function initBlocks() {
     for (var i = 0; i < row; i++) {
         for (var j = 0; j < col; j++) {
             blocks[i * col + j] = new Block({
-                x: 40 + j * 40,
+                x: 20 + j * 40,
                 y: 40 + i * 20,
                 w: 40,
                 h: 20
