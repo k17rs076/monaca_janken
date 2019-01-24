@@ -204,13 +204,13 @@ function main() {
             game.ctx.fillStyle = game.background.color;
             game.ctx.fillRect(0, 0, game.cvs.width, game.cvs.height);
             game.ctx.fillStyle = '#aa0000';
-            game.ctx.font = '60px "Arial Black"';
+            game.ctx.font = '30px "Arial Black"';
             if (game.status == 'gameover') {
-                game.ctx.fillText('Game Over', 160, 230);
-                game.ctx.fillText('Score : ' + game.score.point, 160, 320);
+                game.ctx.fillText('Game Over', 55, 230);
+                game.ctx.fillText('Score : ' + game.score.point, 55, 320);
             } else if (game.status == 'clear') {
-                game.ctx.fillText('Game Clear', 160, 230);
-                game.ctx.fillText('Score : ' + game.score.point, 160, 320);
+                game.ctx.fillText('Game Clear', 55, 230);
+                game.ctx.fillText('Score : ' + game.score.point, 55, 320);
             }
             return;
         }
