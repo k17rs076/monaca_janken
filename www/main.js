@@ -1,5 +1,10 @@
-// This is a JavaScript file
-// ゲームシステム変数
+document.write("<script type='text/javascript' src='mkeys.js'></script>");
+document.write("<script type='text/javascript' src='components/loader.js'></script>");
+
+  var ncmb = new NCMB (appKey, clientKey);
+  var Scoretest = ncmb.DataStore("Scoretest");
+  var key = "Score";
+
 var game = {
     ctx: null,
     time: 0,
@@ -256,10 +261,13 @@ function main() {
                 }
             }
         }
+
         ball.move(); // ボール移動
         // アウト判定
         if (ball.y >= game.cvs.height - ball.size) {
             game.status = 'gameover';
+        db = new Scoretest();
+        db.set(key, game.score.point ).save();
         }
         var flag = true; // クリア判定
         for (var i = 0; i < row; i++) {
@@ -271,7 +279,10 @@ function main() {
         }
         if (flag) {
             game.status = 'clear';
-        } // クリア状態に
+        db = new Scoretest();
+        db.set(key, game.score.point ).save();
+        }
+           // クリア状態に
         paddle.draw(); //バドル描画
         ball.draw(); //ボール描画
         // ブロック描画
