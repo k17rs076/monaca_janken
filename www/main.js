@@ -1,5 +1,9 @@
 document.write("<script type='text/javascript' src='mkeys.js'></script>");
 document.write("<script type='text/javascript' src='components/loader.js'></script>");
+ var appKey = "";
+
+
+var clientKey = "";
 
   var ncmb = new NCMB (appKey, clientKey);
   var Scoretest = ncmb.DataStore("Scoretest");
