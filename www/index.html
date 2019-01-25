@@ -5,16 +5,31 @@
         <meta name="viewport" content="width=300,user-scalable=no">
         <title>ブロック崩し</title>
         <script src="components/loader.js"></script>
-        <script type='text/javascript' src="main.js"></script>
-        <script src="keys.js"></script>
+        <script src="main.js"></script>
+        <script src="mkeys.js"></script>
+        <script src="mFetch.js"></script>
     <script>
-    var ncmb = new NCMB (appKey, clientKey);
-    var Scoretest = ncmb.DataStore("Scoretest");
-    var key = "Score";
+  var ncmb = new NCMB (appKey, clientKey);
+  var Scoretest = ncmb.DataStore("Scoretest");
+  var key = "Score"
+        function mFetch(){
+          Scoretest.order(key,true).limit(1).fetchAll()
+         .then(function(Score){
+            for (var i = 0; i < Score.length; i++) {
+              var object = Score[i];
+              console.log("前回のスコアは"+object.get("Score")+"です。");
+            }
+          })
+         .catch(function(err){
+            console.log(err);
+          });
+      }
+
 </script>
 </head>
 <body>
         <canvas id="sample" width="320" height="630"></canvas>
         <button onclick="main()">実行</button>
+        <button onclick="mFetch()">前回のスコア</button>
 </body>
 </html>
