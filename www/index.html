@@ -17,7 +17,7 @@
          .then(function(Score){
             for (var i = 0; i < Score.length; i++) {
               var object = Score[i];
-              console.log("前回のスコアは"+object.get("Score")+"です。");
+              console.log("ハイスコアは"+object.get("Score")+"です。");
             }
           })
          .catch(function(err){
@@ -30,6 +30,6 @@
 <body>
         <canvas id="sample" width="320" height="630"></canvas>
         <button onclick="main()">実行</button>
-        <button onclick="mFetch()">前回のスコア</button>
+        <button onclick="mFetch()">ハイスコア</button>
 </body>
 </html>
